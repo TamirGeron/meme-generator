@@ -23,26 +23,72 @@ function createMeme(id, elImg) {
             txt: 'Add text',
             size: 100,
             align: 'center',
-            color: '#ffffff'
+            color: '#ffffff',
+            line: 1
         }
         ]
     }
 }
 
+function getColor() {
+    return document.querySelector('#color').value
+}
+
+function getFontSize() {
+    return gMeme.lines[gMeme.selectedLineIdx].size
+}
+
+function getLine() {
+    return gMeme.lines[gMeme.selectedLineIdx].line
+}
+
 function changeColor() {
-    let color = document.querySelector('#color').value
+    let color = getColor()
     gMeme.lines[gMeme.selectedLineIdx].color = color
-    renderMeme()
 }
 
 function changeFontSize(diff) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff;
-    renderMeme()
 }
 
 function changeTxt() {
-    let txt =document.querySelector('#text').value
+    let txt = document.querySelector('#text').value
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
-    renderMeme()
 
+}
+
+function addLine() {
+    if (gMeme.lines.length === 5) {
+        alert('You can\'t make more lines')
+        return
+    }
+    gMeme.lines.push({
+        txt: 'Add text',
+        size: getFontSize(),
+        align: 'center',
+        color: getColor(),
+        line: getLine() + 1
+    })
+    gMeme.selectedLineIdx++;
+}
+
+function changeLine(diff) {
+    let line = gMeme.lines[gMeme.selectedLineIdx].line + diff
+    if (line === 0 || line === 5) return
+    gMeme.lines[gMeme.selectedLineIdx].line = line
+}
+
+function changetxtIdx() {
+    let txtIdx = gMeme.selectedLineIdx + 1
+    if (txtIdx === gMeme.lines.length) txtIdx = 0
+    gMeme.selectedLineIdx = txtIdx
+    renderColor()
+}
+
+function deleteLine() {
+    if (gMeme.lines.length === 1) {
+        gMeme.lines[gMeme.selectedLineIdx].txt = ''
+        return
+    }
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
 }

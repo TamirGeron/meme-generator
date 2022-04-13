@@ -1,7 +1,6 @@
 .editor {
     width: 100%;
     grid-template-rows: 1fr 9fr;
-    /* justify-content: center; */
     padding: 20px;
 }
 

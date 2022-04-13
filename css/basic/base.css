@@ -37,4 +37,5 @@ canvas {
     width: 50%;
     aspect-ratio: 1;
     outline: 1px solid green;
+    max-height: 800px;
 }

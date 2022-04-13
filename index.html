@@ -30,21 +30,22 @@
 
     <div class="main-layout padding-top canvas-container">
         <section class="flex meme-edit">
-            <canvas width="1800" height="1800"></canvas>
+            <canvas width="1000" height="1000"></canvas>
             <div class="editor grid">
-                <input oninput="changeTxt()" type="text" id="text" placeholder="Add text" /> </label>
+                <input oninput="onChange('text')" type="text" id="text" placeholder="Add text" /> </label>
                 <div class="text-control">
                     <div class="flex">
-                        <button>⬆</button>
-                        <button>⬇</button>
-                        <button>⬆⬇</button>
-                        <button>+</button>
-                        <button>🗑</button>
+                        <button onclick="onChange('lineAdd')">⬆</button>
+                        <button onclick="onChange('lineDec')">⬇</button>
+                        <button onclick="onChange('txtIdx')"">⬆⬇</button>
+                        <button onclick=" onChange('addLine')">+</button>
+                        <button onclick="onChange('delete')">🗑</button>
                     </div>
                     <div class="flex">
-                        <button onclick="changeFontSize(5)">A+</button>
-                        <button onclick="changeFontSize(-5)">A-</button>
-                        <button onchange="changeColor(event)" class="color"><input type="color" id="color" value="#ffffff" />🎨</button>
+                        <button onclick="onChange('sizeAdd')">A+</button>
+                        <button onclick="onChange('sizeDec')">A-</button>
+                        <button onchange="onChange('color')" class="color"><input type="color" id="color"
+                                value="#ffffff" />🎨</button>
                     </div>
                 </div>
             </div>
