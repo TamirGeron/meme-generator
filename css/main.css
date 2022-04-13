@@ -1,0 +1,13 @@
+/* SETUP  */
+@import 'setup/var.css';
+
+/* BASE */
+@import 'basic/base.css';
+@import 'basic/helpers.css';
+@import 'basic/layout.css';
+
+/* COMPONENTS */
+
+@import 'components/main-header.css';
+@import 'components/gallary.css';
+@import 'components/edit.css';
