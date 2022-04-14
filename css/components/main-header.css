@@ -4,7 +4,7 @@ header {
 }
 
 .logo {
-  font-size: 40px;
+  font-size: 20px;
   color: var(--primary-clr-800);
   margin: 0;
 }
@@ -47,43 +47,14 @@ header {
   display: none;
 }
 
-@media (max-width: 800px) {
-  header {
-    position: fixed;
-    width: 100%;
-    box-shadow: none;
-    z-index: 1;
-  }
-
-  .main-header .main-nav {
-    position: absolute;
-    bottom: 0;
-    transform: translateY(100%);
-    width: 100%;
-    left: 0;
-    flex-direction: column;
-    max-height: 0;
-    overflow: hidden;
-    justify-content: flex-end;
-
-    transition: max-height .6s;
-  }
-
-  body.menu-open .main-header .main-nav {
-    max-height: 100vh;
-  }
-
-  .main-header .main-nav button {
-    width: 100%;
-  }
-
-  .btn-toggle-menu {
-    display: block;
-  }
-}
-
 @media (min-width: 800px) {
   .btn-toggle-menu {
     display: none;
+  }
+
+  .logo {
+    font-size: 40px;
+    color: var(--primary-clr-800);
+    margin: 0;
   }
 }
