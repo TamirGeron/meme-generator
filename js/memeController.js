@@ -98,3 +98,10 @@ function onSave() {
 function _saveMemesToStorage() {
     saveToStorage(STORAGE_KEY, gMemes)
 }
+
+function downloadCanvas() {
+    let link = document.createElement('a');
+    link.download = 'filename.png';
+    link.href = gElCanvas.toDataURL()
+    link.click();
+}
