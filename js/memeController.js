@@ -24,7 +24,6 @@ function resizeCanvas() {
 function renderMeme(saveClick = false) {
     let img = new Image()
     img.src = gMeme.url
-    console.log(img.src);
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
     gMeme.lines.forEach((line, indx) => {
         let x = gElCanvas.width / 2

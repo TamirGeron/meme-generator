@@ -12,7 +12,6 @@ function addText() {
 }
 
 function createMeme(id, elImg) {
-    console.dir(elImg);
     gMeme = {
         selectedImgId: id,
         url: `meme-imgs/${id}.jpg`,
@@ -31,7 +30,6 @@ function createMeme(id, elImg) {
 }
 
 function makeMeme(id, elImg) {
-    console.dir(elImg);
     gMeme = {
         selectedImgId: id,
         url: `meme-imgs/${id}.jpg`,
