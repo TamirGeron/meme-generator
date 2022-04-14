@@ -20,7 +20,7 @@ function renderMeme() {
     img.src = gMeme.url
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
     gMeme.lines.forEach((line, indx) => {
-        gCtx.font = `${line.size}px Ariel`
+        gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color
         gCtx.textAlign = line.align
         gCtx.fillText(line.txt, gElCanvas.width / 2, gElCanvas.height * line.line / 5)
@@ -55,6 +55,9 @@ function onChange(value) {
             break;
         case 'delete':
             deleteLine()
+            break;
+        case 'fontChange':
+            changeFont()
             break;
     }
     renderMeme()

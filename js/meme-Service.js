@@ -24,7 +24,8 @@ function createMeme(id, elImg) {
             size: 100,
             align: 'center',
             color: '#ffffff',
-            line: 1
+            line: 1,
+            font: 'impact'
         }
         ]
     }
@@ -32,6 +33,10 @@ function createMeme(id, elImg) {
 
 function getColor() {
     return document.querySelector('#color').value
+}
+
+function getFont() {
+    return document.querySelector('#font').value
 }
 
 function getFontSize() {
@@ -67,7 +72,8 @@ function addLine() {
         size: getFontSize(),
         align: 'center',
         color: getColor(),
-        line: getLine() + 1
+        line: getLine() + 1,
+        font: getFont()
     })
     gMeme.selectedLineIdx++;
 }
@@ -91,4 +97,8 @@ function deleteLine() {
         return
     }
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+}
+
+function changeFont() {
+    gMeme.lines[gMeme.selectedLineIdx].font = getFont()
 }

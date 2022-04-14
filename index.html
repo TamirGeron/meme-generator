@@ -42,6 +42,12 @@
                         <button onclick="onChange('delete')">🗑</button>
                     </div>
                     <div class="flex">
+                        <select name="font" id="font" onchange="onChange('fontChange')">
+                            <option value="impact">Impact</option>
+                            <option value="ariel black">Ariel Black</option>
+                            <option value="verdana">Verdana</option>
+                            <option value="georgia">Georgia</option>
+                        </select>
                         <button onclick="onChange('sizeAdd')">A+</button>
                         <button onclick="onChange('sizeDec')">A-</button>
                         <button onchange="onChange('color')" class="color"><input type="color" id="color"
