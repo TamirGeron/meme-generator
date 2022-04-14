@@ -29,24 +29,6 @@ function createMeme(id, elImg) {
     }
 }
 
-function makeMeme(id, elImg) {
-    gMeme = {
-        selectedImgId: id,
-        url: `meme-imgs/${id}.jpg`,
-        // url: elImg.src,
-        selectedLineIdx: 0,
-        lines: [{
-            txt: 'Add text',
-            size: 100,
-            align: 'center',
-            color: '#ffffff',
-            line: 1,
-            font: 'impact'
-        }
-        ]
-    }
-}
-
 function getColor() {
     return document.querySelector('#color').value
 }
