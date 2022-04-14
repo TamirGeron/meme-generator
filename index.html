@@ -28,39 +28,49 @@
         </div>
     </header>
 
-    <div class="main-layout padding-top canvas-container">
-        <section class="flex meme-edit">
+    <div class="main-layout padding-top">
+        <section class="flex meme-edit canvas-container display-none">
             <canvas width="800" height="800"></canvas>
-            <div class="editor grid">
+            <div class="editor grid ">
                 <input oninput="onChange('text')" type="text" id="text" placeholder="Add text" /> </label>
-                <div class="text-control">
+                <div class="text-control align-between grid">
                     <div class="flex">
-                        <button onclick="onChange('lineAdd')">⬇</button>
-                        <button onclick="onChange('lineDec')">⬆</button>
-                        <button onclick="onChange('txtIdx')"">⬆⬇</button>
                         <button onclick=" onChange('addLine')">+</button>
                         <button onclick="onChange('delete')">🗑</button>
                     </div>
                     <div class="flex">
-                        <select name="font" id="font" onchange="onChange('fontChange')">
-                            <option value="impact">Impact</option>
-                            <option value="ariel black">Ariel Black</option>
-                            <option value="verdana">Verdana</option>
-                            <option value="georgia">Georgia</option>
-                        </select>
-                        <button onclick="onChange('sizeAdd')">A+</button>
-                        <button onclick="onChange('sizeDec')">A-</button>
-                        <button onchange="onChange('color')" class="color"><input type="color" id="color"
-                                value="#ffffff" />🎨</button>
+                        <button onclick="onChange('lineAdd')">⬇</button>
+                        <button onclick="onChange('lineDec')">⬆</button>
+                        <button onclick="onChange('txtIdx')"">⬆⬇</button>
+                        
+                    </div>
+                    <div class=" flex font-style">
+                            <select name="font" id="font" onchange="onChange('fontChange')">
+                                <option value="impact">Impact</option>
+                                <option value="ariel black">Ariel Black</option>
+                                <option value="verdana">Verdana</option>
+                                <option value="georgia">Georgia</option>
+                            </select>
+                            <input onchange="onChange('color')" class="color" type="color" id="color" value="#ffffff"
+                                placeholder="🎨" />
+                            <button onclick="onChange('sizeAdd')">A+</button>
+                            <button onclick="onChange('sizeDec')">A-</button>
+                            <button onclick="onChange('alignR')"><img src="icons/align-to-left.png" alt=""></button>
+                            <button onclick="onChange('alignC')"><img src="icons/center-text-alignment.png"
+                                    alt=""></button>
+                            <button onclick="onChange('alignL')"><img src="icons/align-to-right.png" alt=""></button>
+                    </div>
+                    <div class="ready-meme flex">
+                        <button onclick="download()">Download</button>
+                        <button onclick="save()">Save</button>
                     </div>
                 </div>
             </div>
+        </section>
+        <section class="grid grid-container gallery main-layout"> </section>
     </div>
-    </section>
-    </div>
-    <section class="grid grid-container gallery main-layout"> </section>
 
-    
+
 
     <script src="js/main.js"></script>
     <script src="js/meme-service.js"></script>

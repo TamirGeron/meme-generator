@@ -1,47 +1,89 @@
 header {
-    background-color: var(--primary-clr-800);
-    box-shadow: inset 0px -6px 0 var(--primary-clr-900);
-  }
-  
-  .logo {
-    font-size: 40px;
-    color: var(--primary-clr-800);
-    margin: 0;
-  }
-  
-  .main-header .logo {
-    color: var(--primary-clr-100);
+  background-color: var(--primary-clr-800);
+  box-shadow: inset 0px -6px 0 var(--primary-clr-900);
+}
+
+.logo {
+  font-size: 40px;
+  color: var(--primary-clr-800);
+  margin: 0;
+}
+
+.main-header .logo {
+  color: var(--primary-clr-100);
+}
+
+.main-header button {
+  border: unset;
+  color: var(--primary-clr-600);
+  background-color: unset;
+}
+
+.main-header .main-nav a {
+  height: 100px;
+  width: 100px;
+  color: var(--primary-clr-100);
+  cursor: pointer;
+
+  transition: box-shadow .4s;
+}
+
+.main-header .main-nav a:hover {
+  color: var(--secondary-clr-500);
+  box-shadow: inset 0px -6px 0 var(--secondary-clr-500);
+}
+
+.main-header .main-nav>*:first-child {
+  border-inline-start: 1px solid var(--primary-clr-900);
+}
+
+.main-header .main-nav>* {
+  border-inline-end: 1px solid var(--primary-clr-900);
+  background-color: var(--primary-clr-800);
+}
+
+.btn-toggle-menu {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  header {
+    position: fixed;
+    width: 100%;
+    box-shadow: none;
+    z-index: 1;
   }
 
-  .main-header button {
-    border: unset;
-    color: var(--primary-clr-600);
-    background-color: unset;
+  .main-header .main-nav {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    width: 100%;
+    left: 0;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    justify-content: flex-end;
+
+    transition: max-height .6s;
   }
-  
+
+  body.menu-open .main-header .main-nav {
+    max-height: 100vh;
+  }
+
   .main-header .main-nav a {
-    height: 100px;
-    width: 100px;
-    color: var(--primary-clr-100);
-    cursor: pointer;
-  
-    transition: box-shadow .4s;
-  }
-  
-  .main-header .main-nav a:hover {
-    color: var(--secondary-clr-500);
-    box-shadow: inset 0px -6px 0 var(--secondary-clr-500);
-  }
-  
-  .main-header .main-nav>*:first-child {
-    border-inline-start: 1px solid var(--primary-clr-900);
-  }
-  
-  .main-header .main-nav>* {
-    border-inline-end: 1px solid var(--primary-clr-900);
-    background-color: var(--primary-clr-800);
+    width: 100%;
   }
 
   .btn-toggle-menu {
+    display: block;
+  }
+}
+
+@media (min-width: 800px) {
+  .btn-toggle-menu {
     display: none;
+  }
+
 }

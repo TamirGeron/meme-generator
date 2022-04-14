@@ -4,10 +4,12 @@ let gCtx
 let gElCanvas
 let gMaxTxtLines = 5
 
-function onInitMeme() {
+function onInitMeme(id, elImg) {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
+    createMeme(id, elImg)
+    renderMeme()
 }
 
 function resizeCanvas() {
@@ -17,6 +19,7 @@ function resizeCanvas() {
 }
 
 function renderMeme() {
+    console.log(gMeme);
     let img = new Image()
     img.src = gMeme.url
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -29,6 +32,7 @@ function renderMeme() {
         gCtx.fillText(line.txt, x, y)
         if (indx === gMeme.selectedLineIdx) {
             drawRect(x, y, line)
+            document.querySelector('#text').value = line.txt
         }
     });
 }
@@ -64,6 +68,15 @@ function onChange(value) {
             break;
         case 'fontChange':
             changeFont()
+            break;
+        case 'alignL':
+            changeAlign('left')
+            break;
+        case 'alignC':
+            changeAlign('center')
+            break;
+        case 'alignR':
+            changeAlign('right')
             break;
     }
     renderMeme()

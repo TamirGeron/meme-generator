@@ -5,19 +5,11 @@ let gImg
 function onInit() {
     createImgs()
     renderGallery()
-    onInitMeme()
 }
 
-function createImgs() {
-    gImg=[]
-    for(let i=1;i<25;i++) {
-        gImg.push(createImg(i))
-    }
-}
-
-function createImg(idx) {
-    return {
-        id: idx,
-        url: `meme-imgs/${idx}.jpg`
-    }
+function toggleMenu() {
+    document.body.classList.toggle('menu-open')
+    let icon = document.querySelector('.btn-toggle-menu').innerText
+    icon = (icon === 'X') ? '☰' : 'X'
+    document.querySelector('.btn-toggle-menu').innerText = icon
 }

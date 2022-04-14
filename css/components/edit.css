@@ -11,4 +11,26 @@
     font-size: 150%;
 }
 
+.color {
+    height: 50px;
+    min-width: 50px;
+    margin: 5px;
+    font-size: 150%;
+}
 
+.meme-edit {
+    flex-flow: column;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+@media (min-width: 800px) {
+    .meme-edit {
+        flex-flow: row;
+    }
+
+    canvas {
+        width: 50%;
+        height: 100%;
+    }
+}
