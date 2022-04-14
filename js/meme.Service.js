@@ -80,12 +80,6 @@ function addLine() {
     gMeme.selectedLineIdx++;
 }
 
-function changeLine(diff) {
-    let line = gMeme.lines[gMeme.selectedLineIdx].line + diff
-    if (line < 1 || line > 5) return
-    gMeme.lines[gMeme.selectedLineIdx].line = line
-}
-
 function changetxtIdx() {
     let txtIdx = gMeme.selectedLineIdx + 1
     if (txtIdx === gMeme.lines.length) txtIdx = 0

@@ -119,12 +119,6 @@ function onChange(value) {
         case 'addLine':
             addLine()
             break;
-        case 'lineAdd':
-            changeLine(1)
-            break;
-        case 'lineDec':
-            changeLine(-1)
-            break;
         case 'txtIdx':
             changetxtIdx()
             break;
