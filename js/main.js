@@ -2,11 +2,12 @@
 
 let gImg
 let gMemes
+let gMeme
 
 function onInit() {
     createImgs()
     renderGallery()
-    gMemes=[]
+    gMemes = []
 }
 
 function toggleMenu() {
@@ -46,4 +47,17 @@ function onMemesClick() {
     elMemes.classList.add("grid")
     elMemes.classList.remove("display-none")
     onInitSavedMemes()
+}
+
+function onMemeClick(indx) {
+    console.log('hey');
+    gMeme = gMemes.indx
+    gMemes.splice(indx,1)
+    let elMemes = document.querySelector('.saved-memes')
+    elMemes.classList.remove("grid")
+    elMemes.classList.add("display-none")
+    let elCan = document.querySelector('.canvas-container')
+    elCan.classList.remove("display-none")
+    elCan.classList.add("flex")
+    console.log(gMeme);
 }

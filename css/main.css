@@ -8,6 +8,7 @@
 
 /* COMPONENTS */
 
+@import 'components/main.css';
 @import 'components/main-header.css';
 @import 'components/gallary.css';
 @import 'components/edit.css';
