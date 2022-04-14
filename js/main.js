@@ -51,8 +51,11 @@ function onMemesClick() {
 
 function onMemeClick(indx) {
     console.log('hey');
+    getMemes()
     gMeme = gMemes.indx
-    gMemes.splice(indx,1)
+    gMemes.splice(indx, 1)
+    _saveMemesToStorage()
+    debugger
     let elMemes = document.querySelector('.saved-memes')
     elMemes.classList.remove("grid")
     elMemes.classList.add("display-none")
