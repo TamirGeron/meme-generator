@@ -10,6 +10,7 @@ function onInitMeme(id, elImg) {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     getMemes()
+    console.log(gIsEditMeme);
     if (!gIsEditMeme) createMeme(id, elImg)
     resizeCanvas()
     renderMeme()

@@ -34,6 +34,9 @@ function onImgClick(elImg, id) {
     let elCan = document.querySelector('.canvas-container')
     elCan.classList.remove("display-none")
     elCan.classList.add("flex")
+    let elMemes = document.querySelector('.saved-memes')
+    elMemes.classList.remove("grid")
+    elMemes.classList.add("display-none")
     onInitMeme(id, elImg)
 }
 

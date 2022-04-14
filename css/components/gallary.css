@@ -9,6 +9,7 @@
 
 .image {
     border: 1px solid black;
+    object-fit: cover;
 }
 
 @media (min-width: 800px) {
