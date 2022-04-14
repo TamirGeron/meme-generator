@@ -91,7 +91,7 @@ function renderSettings() {
 
 function onSave() {
     renderMeme(true)
-    gMeme.url = gElCanvas.toDataURL()
+    gMeme.img = gElCanvas.toDataURL()
     gMemes.push(gMeme)
     _saveMemesToStorage()
     onMemesClick()

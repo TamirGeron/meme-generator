@@ -12,7 +12,7 @@ function getMemes() {
 
 function renderSavedMemes() {
     let strHtml = gMemes.map((meme,index) => {
-        return `<img onclick="onMemeClick(${index})" class="image" src="${meme.url}" alt="">`
+        return `<img onclick="onMemeClick(${index})" class="image" src="${meme.img}" alt="">`
     })
     document.querySelector('.saved-memes').innerHTML = strHtml.join('')
 }
