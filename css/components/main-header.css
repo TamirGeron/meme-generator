@@ -17,9 +17,10 @@ header {
   border: unset;
   color: var(--primary-clr-600);
   background-color: unset;
+  font-size: 100%;
 }
 
-.main-header .main-nav a {
+.main-header .main-nav button {
   height: 100px;
   width: 100px;
   color: var(--primary-clr-100);
@@ -28,7 +29,7 @@ header {
   transition: box-shadow .4s;
 }
 
-.main-header .main-nav a:hover {
+.main-header .main-nav button:hover {
   color: var(--secondary-clr-500);
   box-shadow: inset 0px -6px 0 var(--secondary-clr-500);
 }
@@ -72,7 +73,7 @@ header {
     max-height: 100vh;
   }
 
-  .main-header .main-nav a {
+  .main-header .main-nav button {
     width: 100%;
   }
 
