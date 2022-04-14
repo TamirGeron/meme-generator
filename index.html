@@ -32,30 +32,34 @@
                 <input oninput="onChange('text')" type="text" id="text" placeholder="Add text" /> </label>
                 <div class="text-control align-between grid">
                     <div class="flex">
-                        <button class="tooltip" onclick=" onChange('addLine')"><span class="tooltiptext">Add Line</span>+</button>
-                        <button class="tooltip" onclick="onChange('delete')"><span class="tooltiptext">Delete Line</span>🗑</button>
-                    </div>
-                    <div class="flex">
-                        <button class="tooltip" onclick="onChange('lineAdd')"><span class="tooltiptext">Take Line Down</span>⬇</button>
-                        <button class="tooltip" onclick="onChange('lineDec')"><span class="tooltiptext">Take Line Up</span>⬆</button>
-                        <button class="tooltip" onclick="onChange('txtIdx')""><span class="tooltiptext">Choose Another Line</span>⬆⬇</button>
-                        
+                        <button class="tooltip" onclick=" onChange('addLine')"><span class="tooltiptext">Add
+                                Line</span>+</button>
+                        <button class="tooltip" onclick="onChange('txtIdx')""><span class=" tooltiptext">Choose Another
+                            Line</span>⬆⬇</button>
+                        <button class="tooltip" onclick="onChange('delete')"><span class="tooltiptext">Delete
+                                Line</span>🗑</button>
                     </div>
                     <div class=" flex font-style">
-                            <select name="font" id="font" onchange="onChange('fontChange')">
-                                <option value="impact">Impact</option>
-                                <option value="ariel black">Ariel Black</option>
-                                <option value="verdana">Verdana</option>
-                                <option value="georgia">Georgia</option>
-                            </select>
-                            <input onchange="onChange('color')" class="color tooltip" type="color" id="color" value="#ffffff" />
-                            <button class="tooltip" onclick="onChange('sizeAdd')"><span class="tooltiptext">Increase Font Size</span>A+</button>
-                            <button class="tooltip" onclick="onChange('sizeDec')"><span class="tooltiptext">Decrease Font Size</span>A-</button>
+                        <select name="font" id="font" onchange="onChange('fontChange')">
+                            <option value="impact">Impact</option>
+                            <option value="ariel black">Ariel Black</option>
+                            <option value="verdana">Verdana</option>
+                            <option value="georgia">Georgia</option>
+                        </select>
+                        <input onchange="onChange('color')" class="color tooltip" type="color" id="color"
+                            value="#ffffff" />
+                        <button class="tooltip" onclick="onChange('sizeAdd')"><span class="tooltiptext">Increase Font
+                                Size</span>A+</button>
+                        <button class="tooltip" onclick="onChange('sizeDec')"><span class="tooltiptext">Decrease Font
+                                Size</span>A-</button>
                     </div>
                     <div class="flex aligin-button">
-                        <button class="tooltip" onclick="onChange('alignR')"><span class="tooltiptext">Align Text To Left</span><img src="icons/align-to-left.png" alt=""></button>
-                        <button class="tooltip" onclick="onChange('alignC')"><span class="tooltiptext">Center Text</span><img src="icons/center-text-alignment.png" alt=""></button>
-                        <button class="tooltip" onclick="onChange('alignL')"><span class="tooltiptext">Align Text To Right</span><img src="icons/align-to-right.png" alt=""></button>
+                        <button class="tooltip" onclick="onChange('alignR')"><span class="tooltiptext">Align Text To
+                                Left</span><img src="icons/align-to-left.png" alt=""></button>
+                        <button class="tooltip" onclick="onChange('alignC')"><span class="tooltiptext">Center
+                                Text</span><img src="icons/center-text-alignment.png" alt=""></button>
+                        <button class="tooltip" onclick="onChange('alignL')"><span class="tooltiptext">Align Text To
+                                Right</span><img src="icons/align-to-right.png" alt=""></button>
                     </div>
                     <div class="ready-meme flex">
                         <button onclick="downloadCanvas(this)">Download ✔</button>

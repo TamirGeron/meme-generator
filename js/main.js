@@ -1,9 +1,13 @@
 'use strict'
 
+let gStartPos
 let gImg
 let gMemes
 let gMeme
-let gIsEditMeme=false
+let gIsEditMeme = false
+let gClick
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
+
 
 function onInit() {
     createImgs()
@@ -54,15 +58,15 @@ function onMemesClick() {
 }
 
 function onMemeClick(index) {
-    getMemes()
-    gMeme = gMemes[index]
-    gIsEditMeme=true
-    renderMeme()
     let elMemes = document.querySelector('.saved-memes')
     elMemes.classList.remove("grid")
     elMemes.classList.add("display-none")
     let elCan = document.querySelector('.canvas-container')
     elCan.classList.remove("display-none")
     elCan.classList.add("flex")
+    getMemes()
+    gMeme = gMemes[index]
+    gIsEditMeme = true
+    onInitMeme()
 }
 

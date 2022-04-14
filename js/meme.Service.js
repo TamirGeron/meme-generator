@@ -11,11 +11,10 @@ function addText() {
     gCtx.fillText('Add text', gElCanvas.width / 2, gElCanvas.height / 5);
 }
 
-function createMeme(id, elImg) {
+function createMeme(id) {
     gMeme = {
         selectedImgId: id,
         url: `meme-imgs/${id}.jpg`,
-        // url: elImg.src,
         selectedLineIdx: 0,
         lines: [{
             txt: 'Add text',
@@ -23,9 +22,13 @@ function createMeme(id, elImg) {
             align: 'center',
             color: '#ffffff',
             line: 1,
-            font: 'impact'
-        }
-        ]
+            font: 'impact',
+            isDrag: false,
+            pos: {
+                x: gElCanvas.width / 2,
+                y: gElCanvas.height / 2
+            }
+        }]
     }
 }
 
@@ -62,26 +65,17 @@ function changeTxt() {
 
 function addLine() {
     let line
-    let size
-    if (gMeme.lines.length === gMaxTxtLines) {
-        alert('You can\'t make more lines')
-        return
-    } else if (!gMeme.lines.length) {
-        size = 100
-        line = 1
-    }
-    else if (gMeme.lines.length === 1) {
-        size = 100
-        line = 5
-    }
-    else line = Math.round(gMaxTxtLines / 2)
     gMeme.lines.push({
         txt: 'Add text',
         size: getFontSize(),
         align: 'center',
         color: getColor(),
         line: line,
-        font: getFont()
+        font: getFont(),
+        pos: {
+            x: gElCanvas.width / 2,
+            y: gElCanvas.height / 2
+        }
     })
     gMeme.selectedLineIdx++;
 }
@@ -129,6 +123,7 @@ function drawRect(x, y, line) {
             rect.xStr += textMetrics.width / 2
             break;
     }
+    gMeme.lines[gMeme.selectedLineIdx].rect = rect
     gCtx.beginPath()
     gCtx.lineWidth = 5
     gCtx.setLineDash([6])
@@ -138,4 +133,34 @@ function drawRect(x, y, line) {
 
 function changeAlign(val) {
     gMeme.lines[gMeme.selectedLineIdx].align = val
+}
+
+function getLineIndex(clickedPos) {
+    const { x, y } = clickedPos
+    let lineIdx = -1
+    gMeme.lines.forEach((line, index) => {
+        let rect = line.rect
+        if (
+            x > rect.xStr - 100 &&
+            y < rect.yStr + 100 &&
+            x < rect.xStr + rect.xEnd + 100 &&
+            y > rect.yStr - rect.yEnd - 100
+        ) lineIdx = index
+    })
+    return lineIdx
+}
+
+function setTextDrag(isDrag, lineIdx = gMeme.selectedLineIdx) {
+    gMeme.lines[lineIdx].isDrag = isDrag
+    gMeme.selectedLineIdx = lineIdx
+    renderMeme()
+}
+
+function getText() {
+    return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function moveText(dx, dy) {
+    gMeme.lines[gMeme.selectedLineIdx].pos.x += dx
+    gMeme.lines[gMeme.selectedLineIdx].pos.y += dy
 }
