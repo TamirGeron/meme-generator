@@ -10,8 +10,8 @@ function onInitMeme(id, elImg) {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     getMemes()
+    if (!gMeme) createMeme(id, elImg)
     resizeCanvas()
-    createMeme(id, elImg)
     renderMeme()
 }
 
@@ -24,7 +24,6 @@ function resizeCanvas() {
 function renderMeme(saveClick = false) {
     let img = new Image()
     img.src = gMeme.url
-    console.dir(img);
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
     gMeme.lines.forEach((line, indx) => {
         let x = gElCanvas.width / 2

@@ -49,18 +49,14 @@ function onMemesClick() {
     onInitSavedMemes()
 }
 
-function onMemeClick(indx) {
-    console.log('hey');
+function onMemeClick(index) {
     getMemes()
-    gMeme = gMemes.indx
-    gMemes.splice(indx, 1)
-    _saveMemesToStorage()
-    debugger
+    gMeme = gMemes[index]
+    renderMeme()
     let elMemes = document.querySelector('.saved-memes')
     elMemes.classList.remove("grid")
     elMemes.classList.add("display-none")
     let elCan = document.querySelector('.canvas-container')
     elCan.classList.remove("display-none")
     elCan.classList.add("flex")
-    console.log(gMeme);
 }
