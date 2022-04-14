@@ -12,9 +12,11 @@ function addText() {
 }
 
 function createMeme(id, elImg) {
+    console.dir(elImg);
     gMeme = {
         selectedImgId: id,
-        url: elImg.src,
+        url: `meme-imgs/${id}.jpg`,
+        // url: elImg.src,
         selectedLineIdx: 0,
         lines: [{
             txt: 'Add text',
