@@ -4,6 +4,8 @@ let gCtx
 let gElCanvas
 let gMaxTxtLines = 5
 
+const STORAGE_KEY = 'memesDB'
+
 function onInitMeme(id, elImg) {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
@@ -85,4 +87,14 @@ function onChange(value) {
 function renderSettings() {
     document.querySelector('#color').value = gMeme.lines[gMeme.selectedLineIdx].color
     document.querySelector('#font').value = gMeme.lines[gMeme.selectedLineIdx].color
+}
+
+function onSave() {
+    gMemes.push(gMeme)
+    _saveMemesToStorage()
+    onMemesClick()
+}
+
+function _saveMemesToStorage() {
+    saveToStorage(STORAGE_KEY, gMemes)
 }
