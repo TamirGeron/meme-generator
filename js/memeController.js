@@ -2,6 +2,7 @@
 
 let gCtx
 let gElCanvas
+let gMaxTxtLines = 5
 
 function onInitMeme() {
     gElCanvas = document.querySelector('canvas')
@@ -20,10 +21,15 @@ function renderMeme() {
     img.src = gMeme.url
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
     gMeme.lines.forEach((line, indx) => {
+        let x = gElCanvas.width / 2
+        let y = gElCanvas.height * line.line / gMaxTxtLines
         gCtx.font = `${line.size}px ${line.font}`
         gCtx.fillStyle = line.color
         gCtx.textAlign = line.align
-        gCtx.fillText(line.txt, gElCanvas.width / 2, gElCanvas.height * line.line / 5)
+        gCtx.fillText(line.txt, x, y)
+        if (indx === gMeme.selectedLineIdx) {
+            drawRect(x, y, line)
+        }
     });
 }
 
@@ -63,7 +69,7 @@ function onChange(value) {
     renderMeme()
 }
 
-function renderColor() {
+function renderSettings() {
     document.querySelector('#color').value = gMeme.lines[gMeme.selectedLineIdx].color
-
+    document.querySelector('#font').value = gMeme.lines[gMeme.selectedLineIdx].color
 }

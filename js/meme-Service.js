@@ -63,7 +63,7 @@ function changeTxt() {
 }
 
 function addLine() {
-    if (gMeme.lines.length === 5) {
+    if (gMeme.lines.length === gMaxTxtLines) {
         alert('You can\'t make more lines')
         return
     }
@@ -80,7 +80,7 @@ function addLine() {
 
 function changeLine(diff) {
     let line = gMeme.lines[gMeme.selectedLineIdx].line + diff
-    if (line === 0 || line === 5) return
+    if (line <1 || line > 5) return
     gMeme.lines[gMeme.selectedLineIdx].line = line
 }
 
@@ -88,7 +88,7 @@ function changetxtIdx() {
     let txtIdx = gMeme.selectedLineIdx + 1
     if (txtIdx === gMeme.lines.length) txtIdx = 0
     gMeme.selectedLineIdx = txtIdx
-    renderColor()
+    renderSettings()
 }
 
 function deleteLine() {
@@ -101,4 +101,20 @@ function deleteLine() {
 
 function changeFont() {
     gMeme.lines[gMeme.selectedLineIdx].font = getFont()
+}
+
+function drawRect(x, y, line) {
+    let textMetrics = gCtx.measureText(line.txt);
+    const rect = {
+        xStr: x - 10 - textMetrics.width / 2,
+        yStr: y - line.size,
+        xEnd: 10 + textMetrics.width + 10,
+        yEnd: line.size + 10
+
+    }
+    gCtx.beginPath()
+    gCtx.lineWidth = 5
+    gCtx.setLineDash([6])
+    gCtx.rect(rect.xStr, rect.yStr, rect.xEnd, rect.yEnd)
+    gCtx.stroke()
 }
