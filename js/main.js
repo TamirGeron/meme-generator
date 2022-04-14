@@ -3,6 +3,7 @@
 let gImg
 let gMemes
 let gMeme
+let gIsEditMeme=false
 
 function onInit() {
     createImgs()
@@ -52,6 +53,7 @@ function onMemesClick() {
 function onMemeClick(index) {
     getMemes()
     gMeme = gMemes[index]
+    gIsEditMeme=true
     renderMeme()
     let elMemes = document.querySelector('.saved-memes')
     elMemes.classList.remove("grid")
