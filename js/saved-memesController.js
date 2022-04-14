@@ -7,11 +7,12 @@ function onInitSavedMemes() {
 
 function getMemes() {
     gMemes = loadFromStorage(STORAGE_KEY)
+    if (!gMemes) gMemes=[]
 }
 
 function renderSavedMemes() {
-    let strHtml = gMemes.map((img) => {
-        return `<img onclick="onImgClick(this,${img.id})" class="image" src="${img.url}" alt="">`
+    let strHtml = gMemes.map((meme) => {
+        return `<img onclick="onMemeClick(this)" class="image" src="${meme.url}" alt="">`
     })
-    document.querySelector('.gallery').innerHTML = strHtml.join('')
+    document.querySelector('.saved-memes').innerHTML = strHtml.join('')
 }

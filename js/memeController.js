@@ -9,6 +9,7 @@ const STORAGE_KEY = 'memesDB'
 function onInitMeme(id, elImg) {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
+    getMemes()
     resizeCanvas()
     createMeme(id, elImg)
     renderMeme()
@@ -20,10 +21,10 @@ function resizeCanvas() {
     gElCanvas.height = elContainer.offsetHeight
 }
 
-function renderMeme() {
-    console.log(gMeme);
+function renderMeme(saveClick = false) {
     let img = new Image()
     img.src = gMeme.url
+    console.dir(img);
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
     gMeme.lines.forEach((line, indx) => {
         let x = gElCanvas.width / 2
@@ -32,7 +33,7 @@ function renderMeme() {
         gCtx.fillStyle = line.color
         gCtx.textAlign = line.align
         gCtx.fillText(line.txt, x, y)
-        if (indx === gMeme.selectedLineIdx) {
+        if (indx === gMeme.selectedLineIdx && !saveClick) {
             drawRect(x, y, line)
             document.querySelector('#text').value = line.txt
         }
@@ -90,6 +91,8 @@ function renderSettings() {
 }
 
 function onSave() {
+    renderMeme(true)
+    gMeme.url = gElCanvas.toDataURL()
     gMemes.push(gMeme)
     _saveMemesToStorage()
     onMemesClick()
@@ -100,8 +103,10 @@ function _saveMemesToStorage() {
 }
 
 function downloadCanvas() {
+    renderMeme(true)
     let link = document.createElement('a');
-    link.download = 'filename.png';
+    link.download = 'Canvas.png';
     link.href = gElCanvas.toDataURL()
     link.click();
 }
+

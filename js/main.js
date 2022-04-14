@@ -1,10 +1,12 @@
 'use strict'
 
 let gImg
+let gMemes
 
 function onInit() {
     createImgs()
     renderGallery()
+    gMemes=[]
 }
 
 function toggleMenu() {
@@ -14,7 +16,7 @@ function toggleMenu() {
     document.querySelector('.btn-toggle-menu').innerText = icon
 }
 
-function goToGallery() {
+function onClickGallery() {
     let elGal = document.querySelector('.gallery')
     elGal.classList.add("grid")
     elGal.classList.remove("display-none")
