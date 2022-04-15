@@ -26,6 +26,7 @@ function toggleMenu() {
 }
 
 function onClickGallery() {
+    clearGMeme()
     let elGal = document.querySelector('.gallery')
     elGal.classList.add("grid")
     elGal.classList.remove("display-none")

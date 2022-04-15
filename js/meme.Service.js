@@ -52,6 +52,11 @@ function createMemeUpload(img) {
     onInitMeme()
 }
 
+function clearGMeme() {
+    gMeme = undefined
+}
+
+
 function getColor() {
     return document.querySelector('#color').value
 }
