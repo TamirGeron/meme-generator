@@ -1,16 +1,10 @@
 'use strict'
 
-let gCtx
-let gElCanvas
-
 const STORAGE_KEY = 'memesDB'
 
 function onInitMeme(id) {
-    gElCanvas = document.querySelector('canvas')
-    gCtx = gElCanvas.getContext('2d')
     getMemes()
-    if (!gIsEditMeme) createMeme(id)
-    gIsEditMeme = false
+    if (!gMeme) createMeme(id)
     addListeners()
     renderMeme()
 }
@@ -86,7 +80,7 @@ function onMove(ev) {
     const dy = pos.y - gStartPos.y
     moveText(dx, dy)
     gStartPos = pos
-    
+
     renderMeme()
 }
 
@@ -150,6 +144,7 @@ function onSave() {
     renderMeme(true)
     gMeme.img = gElCanvas.toDataURL()
     gMemes.push(gMeme)
+    gMeme = undefined
     _saveMemesToStorage()
     onMemesClick()
 }
@@ -166,3 +161,24 @@ function downloadCanvas() {
     link.click();
 }
 
+function onImgInput(ev) {
+    let elGal = document.querySelector('.gallery')
+    elGal.classList.remove("grid")
+    elGal.classList.add("display-none")
+    let elCan = document.querySelector('.canvas-container')
+    elCan.classList.remove("display-none")
+    elCan.classList.add("flex")
+    loadImageFromInput(ev, createMemeUpload)
+}
+
+function loadImageFromInput(ev, onImageReady) {
+    let reader = new FileReader()
+    reader.onload = (event) => {
+        console.log('onload');
+        let img = new Image()
+        // Render on canvas
+        img.src = event.target.result
+        img.onload = onImageReady.bind(null, img)
+    }
+    reader.readAsDataURL(ev.target.files[0])
+}

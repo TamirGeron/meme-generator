@@ -13,7 +13,6 @@ function addText() {
 
 function createMeme(id) {
     gMeme = {
-        selectedImgId: id,
         url: `meme-imgs/${id}.jpg`,
         selectedLineIdx: 0,
         lines: [{
@@ -30,6 +29,27 @@ function createMeme(id) {
             }
         }]
     }
+}
+
+function createMemeUpload(img) {
+    gMeme = {
+        url: img.src,
+        selectedLineIdx: 0,
+        lines: [{
+            txt: 'Add text',
+            size: 100,
+            align: 'center',
+            color: '#ffffff',
+            line: 1,
+            font: 'impact',
+            isDrag: false,
+            pos: {
+                x: gElCanvas.width / 2,
+                y: gElCanvas.height / 2
+            }
+        }]
+    }
+    onInitMeme()
 }
 
 function getColor() {

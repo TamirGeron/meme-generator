@@ -68,7 +68,12 @@
                 </div>
             </div>
         </section>
-        <section class="grid grid-container gallery main-layout"> </section>
+        <section class="main-layout gallery">
+            <div class="inputs flex">
+                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+            </div>
+            <div class="grid grid-container saved-images"> </div>
+        </section>
         <section class="grid grid-container saved-memes main-layout display-none"> </section>
     </div>
 

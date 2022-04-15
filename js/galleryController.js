@@ -5,9 +5,9 @@
 function renderGallery() {
     // let strHtml = ``
     let strHtml = gImg.map((img) => {
-        return `<img onclick="onImgClick(this,${img.id})" class="image" src="${img.url}" alt="">`
+        return `<img onclick="onImgClick(${img.id})" class="image" src="${img.url}" alt="">`
     })
-    document.querySelector('.gallery').innerHTML = strHtml.join('')
+    document.querySelector('.saved-images').innerHTML = strHtml.join('')
 }
 
 function createImgs() {
